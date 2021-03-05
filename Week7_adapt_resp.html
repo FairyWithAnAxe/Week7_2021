@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .header {
+            background: rgb(184, 139, 226);
+            text-align: center;
+            grid-area: h;
+        }
+
+        .main {
+            background: rgb(187, 36, 119);
+            grid-area: m;
+            text-align: center;
+        }
+
+        .maincontainer {
+            display: grid;
+            width: 100%;
+            height: 50%;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 50%;
+            grid-gap: 1rem;
+            margin-top: 20%;
+        }
+
+        .main-item {
+            background: rgb(223, 93, 165);
+            text-align: center;
+            margin: 10px;
+        }
+
+        .main-item3 {
+            grid-column: 1/4;
+            background: rgb(223, 93, 165);
+            text-align: center;
+            margin: 10px;
+        }
+
+        .sidebar {
+            background: rgb(129, 8, 241);
+            grid-area: s;
+            text-align: center;
+        }
+
+        .footer {
+            background: blueviolet;
+            grid-area: f;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            padding: 20px;
+            grid-gap: 1rem;
+        }
+
+        .footer-item {
+            background: rgb(187, 36, 119);
+            text-align: center;
+            padding: 5px;
+            font-size: 2vh;
+        }
+
+        .container {
+            display: grid;
+            height: 90vh;
+            width: 90vw;
+            grid-template-columns: 65% 35%;
+            grid-template-rows: 15% 1fr 15%;
+            grid-template-areas:
+                "h h"
+                "m s"
+                "f f";
+        }
+
+        @media screen and (max-width: 767px) {
+
+            .container {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .header {
+                height: 15%;
+            }
+
+            .main {
+                height: 55%;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .maincontainer {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .sidebar {
+                height: 30%;
+            }
+
+            .footer {
+                display: none;
+            }
+        }
+
+        @media screen and (min-width: 768px) and (max-width: 1023px) {
+            .container {
+                display: flex;
+                flex-direction: column-reverse;
+            }
+
+            .header {
+                height: 15%;
+            }
+
+            .main {
+                height: 55%;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .maincontainer {
+                display: flex;
+                flex-direction: column-reverse;
+            }
+
+            .sidebar {
+                height: 10%;
+            }
+
+            .footer {
+                //display: none;
+                font-style: italic;
+                background-color: green;
+                height: 20%;
+                display: flex;
+                flex-direction: row-reverse;
+            }
+        }
+
+        @media screen and (min-width: 1024px) {
+            .main-item3 {
+                display: none;
+            }
+
+            .footer-item {
+                background-color: yellow;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">[Шапка страницы]
+        </header>
+        <main class="main">[Основная часть]
+            <div class="maincontainer">
+                <div class="main-item">[Еще 1]</div>
+                <div class="main-item">[Еще 2]</div>
+                <div class="main-item3">[Еще 3]</div>
+            </div>
+        </main>
+        <aside class="sidebar">[Боковая область]</aside>
+        <footer class="footer">
+            <div class="footer-item">[Секция футера 1]</div>
+            <div class="footer-item">[Секция футера 2]</div>
+            <div class="footer-item">[Секция футера 3]</div>
+            <div class="footer-item">[Секция футера 4]</div>
+        </footer>
+    </div>
+</body>
+
+</html>
